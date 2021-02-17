@@ -1,0 +1,7 @@
+*.jpg
+__pycache__
+output
+compressed_output
+*.zip
+envs
+*.pt

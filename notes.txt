@@ -1,0 +1,35 @@
+conda create -n SNP2 python=3.6
+conda activate SNP2
+
+remove torch, torchvision, opencv-python
+
+pip install -r Requirements.txt
+
+conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+
+
+Photo to oil painting
+
+  Progressive rendering
+
+python demo_prog.py --img_path ./test_images/1.jpg --canvas_color 'white' --max_m_strokes 500 --max_divide 5 --renderer oilpaintbrush --renderer_checkpoint_dir checkpoints_G_oilpaintbrush --net_G zou-fusion-net --disable_preview
+
+
+Photo to marker-pen painting
+
+  Progressive rendering
+
+python demo_prog.py --img_path ./test_images/diamond.jpg --canvas_color 'black' --max_m_strokes 500 --max_divide 5 --renderer markerpen --renderer_checkpoint_dir checkpoints_G_markerpen --net_G zou-fusion-net --disable_preview
+
+
+
+Style transfer
+
+python demo.py --img_path ./test_images/sunflowers.jpg --canvas_color 'white' --max_m_strokes 100 --m_grid 5 --renderer oilpaintbrush --renderer_checkpoint_dir checkpoints_G_oilpaintbrush --net_G zou-fusion-net --output_dir ./output
+
+
+
+Generate 8-bit graphic artworks
+
+python demo_8bitart.py --img_path ./test_images/monalisa.jpg --canvas_color 'black' --max_m_strokes 300 --max_divide 4 --disable_preview
